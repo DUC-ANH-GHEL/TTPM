@@ -1,0 +1,530 @@
+﻿@model IEnumerable<functionrequire.Models.HarkWork>
+@{
+    ViewBag.Title = "TTPM";
+}
+
+@*<link href="~/Content/Chat.css" rel="stylesheet" />*@
+<div class="alert alert-success" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong id="alert-sucss">    </strong>  Đã đồng ý hỗ trợ
+</div>
+<marquee> CÙNG NHAU ĐUA TOP ĐỂ NHẬN ĐƯỢC NHỮNG PHẦN QUÀ THÚ VỊ NHA ( bật mí 😉 top 1 hàng tháng sẽ có quà siêu to khổng lồ 🎁) 👉  Mỗi lượt yêu cầu hỗ trợ thành công bạn sẽ được cộng 1 token            👍 GOOD LUCK!  </marquee>
+<div class="container">
+    <h3 style="color:greenyellow; text-align:center">TOP CHĂM CHỈ</h3>
+    <div class="table" style="display:flex; justify-content:center">
+        <table width="90%">
+            <tr>
+                <th>
+                    TOP
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    Token
+                </th>
+                <th></th>
+            </tr>
+            @{
+                int i = 0;
+            }
+            @foreach (var item in Model)
+            {
+                i++;
+                <tr>
+                    <td>@i</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grade)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <!--chat-->
+    <div class="container">
+        <div class="row chat-window col-xs-5 col-md-3" id="chat_window_1" style="margin-left:10px;">
+            <div class="col-xs-12 col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading top-bar">
+                        <div class="col-md-8 col-xs-8">
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chém gió đêêê 🤣 </h3>
+                        </div>
+                        <div class="col-md-4 col-xs-4" style="text-align: right;">
+                            <a href="#"><span id="minim_chat_window" class="glyphicon glyphicon-minus icon_minim"></span></a>
+                            <a href="#"><span class="glyphicon glyphicon-remove icon_close" data-id="chat_window_1"></span></a>
+                        </div>
+                    </div>
+                    <div class="panel-body msg_container_base" id="messreceive">
+                        @*<div class="row msg_container base_sent">
+                                <div class="col-md-10 col-xs-10">
+                                    <div class="messages msg_sent">
+                                        <p>
+                                            that mongodb thing looks good, huh?
+                                            tiny master db, and huge document store
+                                        </p>
+                                        <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-xs-2 avatar">
+                                    <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                                </div>
+                            </div>
+                            <div class="row msg_container base_receive">
+                                <div class="col-md-2 col-xs-2 avatar">
+                                    <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                                </div>
+                                <div class="col-md-10 col-xs-10">
+                                    <div class="messages msg_receive">
+                                        <p>
+                                            that mongodb thing looks good, huh?
+                                            tiny master db, and huge document store
+                                        </p>
+                                        <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row msg_container base_receive">
+                                <div class="col-md-2 col-xs-2 avatar">
+                                    <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                                </div>
+                                <div class="col-xs-10 col-md-10">
+                                    <div class="messages msg_receive">
+                                        <p>
+                                            that mongodb thing looks good, huh?
+                                            tiny master db, and huge document store
+                                        </p>
+                                        <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row msg_container base_sent">
+                                <div class="col-xs-10 col-md-10">
+                                    <div class="messages msg_sent">
+                                        <p>
+                                            that mongodb thing looks good, huh?
+                                            tiny master db, and huge document store
+                                        </p>
+                                        <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-xs-2 avatar">
+                                    <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                                </div>
+                            </div>
+                            <div class="row msg_container base_receive">
+                                <div class="col-md-2 col-xs-2 avatar">
+                                    <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                                </div>
+                                <div class="col-xs-10 col-md-10">
+                                    <div class="messages msg_receive">
+                                        <p>
+                                            that mongodb thing looks good, huh?
+                                            tiny master db, and huge document store
+                                        </p>
+                                        <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row msg_container base_sent">
+                                <div class="col-md-10 col-xs-10 ">
+                                    <div class="messages msg_sent">
+                                        <p>
+                                            that mongodb thing looks good, huh?
+                                            tiny master db, and huge document store
+                                        </p>
+                                        <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-xs-2 avatar">
+                                    <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                                </div>
+                            </div>*@
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
+                            @*<span class="input-group-btn">
+                                    <button class="btn btn-primary btn-sm"  id="btn-chat">Send</button>
+                                </span>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-group dropup">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-cog"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#" id="new_chat"><span class="glyphicon glyphicon-plus"></span> Novo</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-list"></span> Ver outras</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-remove"></span> Fechar Tudo</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><span class="glyphicon glyphicon-eye-close"></span> Invisivel</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--chat-->
+    <!-- Button trigger modal -->
+    <button type="button" style="display:none" id="btn-modal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+    @if (ViewBag.status != false)
+    {
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><span id="exampleModalLabel2" style="color:green"></span> Cần hỗ trợ</h5>
+                        <h4 id="idofyour" style="display:none">jj</h4>
+                        <button type="button" id="stop-real" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="modal-body" class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="ok-stop" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="@ViewBag.id" class="btn btn-primary ok-nha">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="display:none">
+            <h1 class="timer">
+                <span class="minutes">00</span> :
+                <span class="seconds">00</span> .
+                <span class="milliseconds">000</span>
+            </h1>
+            <ol class="lapContainer"></ol>
+            <div class="bottomPart" style="display:none">
+                <div class="btns">
+                    <button class="reset">Reset</button>
+                    <button id="start-time" class="toggle">Start</button>
+                    <button class="lap">Lap</button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <script>
+        //StopWatch
+        function Stopwatch(elem) {
+            var time = 0;
+            var offset;
+            var interval;
+
+            function lapOn() {
+                var lapTime = lapContainer.appendChild(document.createElement("li"))
+                lapTime.innerHTML = elem.textContent;
+                lapTime.classList = 'lapItem'
+            }
+
+            function lapOff() {
+                return;
+            }
+
+            function update() {
+                if (this.isOn) {
+                    time += delta();
+                }
+                elem.textContent = timeFormatter(time);
+            }
+
+            function delta() {
+                var now = Date.now();
+                var timePassed = now - offset;
+
+                offset = now;
+
+                return timePassed;
+            }
+
+            function timeFormatter(time) {
+                time = new Date(time);
+
+                var minutes = time.getMinutes().toString();
+                var seconds = time.getSeconds().toString();
+                var milliseconds = time.getMilliseconds().toString();
+
+                if (minutes.length < 2) {
+                    minutes = '0' + minutes;
+                }
+
+                if (seconds.length < 2) {
+                    seconds = '0' + seconds;
+                }
+
+                while (milliseconds.length < 3) {
+                    milliseconds = '0' + milliseconds;
+                }
+
+                /*var result = minutes + ' : ' + seconds + ' . ' + milliseconds;*/
+                var result = minutes;
+                return result;
+            }
+
+            this.start = function () {
+                interval = setInterval(update.bind(this), 1);
+                offset = Date.now();
+                this.isOn = true;
+            };
+
+            this.stop = function () {
+                clearInterval(interval);
+                interval = null;
+                this.isOn = false;
+            };
+
+            this.reset = function () {
+                time = 0;
+                lapContainer.innerHTML = '';
+                interval = null;
+                this.isOn = false;
+                update();
+            };
+
+            this.lapOn = function () {
+                lapOn();
+            }
+
+            this.lapOff = function () {
+                lapOff();
+            }
+
+            this.isOn = false;
+        }
+
+        //Main
+        var timer = document.querySelector('.timer');
+        var toggleBtn = document.querySelector('.toggle');
+        var resetBtn = document.querySelector('.reset');
+        var lapBtn = document.querySelector('.lap');
+        //DateT TodayTodayodayimeTHourinuteHourimeTimeTime   var lapContainer = document.querySelector('.lapContainer')
+        var lapContainer = document.querySelector('.lapContainer')
+
+        var watch = new Stopwatch(timer);
+
+        function start() {
+            toggleBtn.textContent = 'Stop';
+            toggleBtn.classList.toggle("on");
+            watch.start();
+        }
+
+        function stop() {
+            toggleBtn.textContent = 'SDateTimeart'; Minutetenute
+            toggleBtn.classList.toggle("on")
+            watch.stop();
+        }
+
+        function stopWhenOn() {
+            toggleBtn.textContent = 'Start';
+            toggleBtn.classList.toggle("on")
+            watch.stop();
+            watch.reset();
+        }
+
+        toggleBtn.addEventListener('click', function () {
+            watch.isOn ? stop() : start();
+        });
+
+        resetBtn.addEventListener('click', function () {
+            watch.isOn ? stopWhenOn() : watch.reset();
+            // stop();
+        });
+
+        lapBtn.addEventListener('click', function () {
+            watch.isOn ? watch.lapOn() : watch.lapOff();
+        })
+    </script>
+    <!-- Popup Subscribe Box End -->
+    @section scripts {
+        <!--Script references. -->
+        <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
+        <!--Reference the SignalR library. -->
+        <script src="~/Scripts/jquery.signalR-2.1.0.min.js"></script>
+        <!--Reference the autogenerated SignalR hub script. -->
+        <script src="~/signalr/hubs"></script>
+        <script src="~/Scripts/Chat.js"></script>
+        <script>
+
+            $(function () {
+
+            // thay đổi chữ của title
+            var PageTitleNotification = {
+                Vars: {
+                    OriginalTitle: document.title,
+                    Interval: null
+                },
+                On: function (notification, intervalSpeed) {
+                    var _this = this;
+                    _this.Vars.Interval = setInterval(function () {
+                        document.title = (_this.Vars.OriginalTitle == document.title)
+                            ? notification
+                            : _this.Vars.OriginalTitle;
+                    }, (intervalSpeed) ? intervalSpeed : 1000);
+                },
+                Off: function () {
+                    clearInterval(this.Vars.Interval);
+                    document.title = this.Vars.OriginalTitle;
+                }
+            }
+
+            $(".alert").hide();
+            var chat = $.connection.chatHub;
+
+            $(".ok-nha").click(function () {
+                //$(document).attr("title", "Index");
+                PageTitleNotification.Off();
+                $.connection.hub.start().done(function () {
+
+                    chat.server.update($(".ok-nha").attr("id"), $("#fullname").text());
+                    chat.server.addgrade($("#exampleModalLabel2").text(), $("#idofyour").text());
+                });
+                $("#start-time").click()
+            });
+            $("#btn-input").keypress(function (e) {
+                var key = e.which;
+                if (key == 13) {
+                    var text = $("#btn-input").val();
+                    var name = $("#fullname").text();
+
+                    $.connection.hub.start().done(function () {
+                        chat.server.chatmess(name, text);
+                    })
+                    $("#btn-input").val(' ');
+                }
+            })
+            $("#btn-chat").click(function () {
+                var text = $("#btn-input").val();
+                var name = $("#fullname").text();
+
+                $.connection.hub.start().done(function () {
+                    chat.server.chatmess(name, text);
+                })
+                $("#btn-input").val(' ');
+            });
+
+
+            // đẩu ra
+            chat.client.addNewMessageToPage = function (name,id, request) {
+                //$(document).attr("title", "(1)Có khách");
+                PageTitleNotification.On("(1) 🤑😱");
+                $("#btn-modal").click()
+                $("#exampleModalLabel2").html(name);
+                $("#idofyour").html(id);
+                $("#modal-body").html(request);
+                $("#ok-stop").click(function () {
+                    //$(document).attr("title", "Index");
+                    PageTitleNotification.Off();
+                    $("#start-time").click();
+                    $.connection.hub.start().done(function () {
+                        chat.server.data($("#exampleModalLabel2").text(), $("#modal-body").text(), Number($(".timer").text()));
+
+                    });
+                    $(".reset").click();
+
+                });
+            }
+            chat.client.addNewMessageToPage2 = function (id, name) {
+                $("#stop-real").click(); // click nút đóng modal
+                $("#success-alert").alert(); // hien thi thong bao nguoi agree
+
+                window.setTimeout(function () {
+                    $("#alert-sucss").html(name);
+                    $(".alert").show();
+                    $(".alert").attr('style', 'opacity:inherit'); // xét lại độ mờ cho nó về ban đầu sau khi tụt xuống 0
+                    $(".alert").fadeTo(20000, 0).slideUp(5000, function () {
+                        //$(this).hide();
+                    });
+                }, 1000);
+                //alert(name + "đã đồng ý support");k
+                //if (id == null) {
+                //    alert("hihi");
+                //}
+                //else {
+                //    alert("het null roi");
+                //}
+            }
+            chat.client.addNewMessageToPage3 = function (name, request, time) {
+                alert("name: " + name + "     y/c: " + request + "    time: " + time + " phút");
+            }
+
+            chat.client.addNewMessageToPage4 = function (name, mess) {
+                // scroll alway on bottom
+                // cách 1
+                //var messageBody = document.querySelector('#messreceive');
+                //messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+                // cách 2
+                $('#messreceive').scrollTop($('#messreceive')[0].scrollHeight);
+                var m = `<div class="row msg_container base_receive">
+                                                                                                                    <div class="col-md-2 col-xs-2 avatar">
+                                                                                                                        <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                                                                                                                    </div>
+                                                                                                                    <div class="col-md-10 col-xs-10">
+                                                                                                                        <div class="messages msg_receive">
+                                                                                                                            <p>
+                                                                                                                                ${mess}
+                                                                                                                            </p>
+                                                                                                                            <time datetime="2009-11-13T20:00">${name} • 51 min</time>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>`;
+                $("#messreceive").append(`<div class="row msg_container base_receive">
+                                                                                                                    <div class="col-md-2 col-xs-2 avatar">
+                                                                                                                        <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                                                                                                                    </div>
+                                                                                                                    <div class="col-md-10 col-xs-10">
+                                                                                                                        <div class="messages msg_receive">
+                                                                                                                            <p>
+                                                                                                                                ${mess}
+                                                                                                                            </p>
+                                                                                                                            <time datetime="2009-11-13T20:00">${name} • @DateTime.Now</time>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>`);
+            }
+            // đầu vào
+            $.connection.hub.start().done(function () {
+                $("#support-text").keypress(function (e) {
+
+                    var key = e.which;
+                    if (key == 13) {
+
+                        var content = $("#support-text").val();
+                        if (content == "") {
+                            alert("vui lòng nhập thông tin hỗ trợ");
+                        }
+                        else {
+
+                            chat.server.send($("#fullname").text(), $("#id_of_your").text(), $("#support-text").val());
+                            $("#support-text").val("");
+                            alert("xin vui lòng chờ ít phút sẽ có người đến hỗ trợ bạn ...");
+                        }
+                    }
+                })
+                $("#ycsupport").click(function () {
+                    var content = $("#support-text").val();
+                    if (content == "") {
+                        alert("vui lòng nhập thông tin hỗ trợ");
+                    }
+                    else {
+                        chat.server.send($("#fullname").text(), $("#id_of_your").text() , $("#support-text").val());
+                        $("#support-text").val("");
+                        alert("xin vui lòng chờ ít phút sẽ có người đến hỗ trợ bạn ...");
+                    }
+
+                });
+            });
+        });
+        </script>
+    }
+
